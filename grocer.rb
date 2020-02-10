@@ -164,7 +164,7 @@ def checkout(cart, coupons)
   
   total = 0
   clearanced.length.times do |i|
-    total += clearanced[i][:price] * clearanced[i][:count]
+    total += (clearanced[i][:price] * clearanced[i][:count])
   end
   
   if total > 100 then
