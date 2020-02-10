@@ -36,6 +36,7 @@ def consolidate_cart(cart)
       row[:count] = 1
       # push onto the array
       output.push(row)
+    end
   end
   
   output
