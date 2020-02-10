@@ -148,7 +148,6 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  pp cart
   # Consult README for inputs and outputs
   #
   # This method should call
@@ -160,6 +159,7 @@ def checkout(cart, coupons)
   # some irritated customers
   
   consolidated = consolidate_cart(cart)
+  pp consolidated
   couponed = apply_coupons(consolidated, coupons)
   clearanced = apply_clearance(couponed)
   
