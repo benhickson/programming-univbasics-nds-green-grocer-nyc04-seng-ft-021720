@@ -22,27 +22,35 @@ def consolidate_cart(cart)
   # REMEMBER: This returns a new Array that represents the cart. Don't merely
   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
   
-  num_of_items = cart.length
+  # num_of_items = cart.length
   
-  names = []
-  num_of_items.times do |i|
-    names.push(cart[i][:item])
-  end
+  # names = []
+  # num_of_items.times do |i|
+  #   names.push(cart[i][:item])
+  # end
   
-  counts = {}
-  num_of_items.times do |i|
-    counts[names[i]] = 0
-  end
-  num_of_items.times do |i|
-    counts[names[i]] += 1
-  end
+  # counts = {}
+  # num_of_items.times do |i|
+  #   counts[names[i]] = 0
+  # end
+  # num_of_items.times do |i|
+  #   counts[names[i]] += 1
+  # end
   
   output = []
   
   cart.length.times do |i|
-    row = cart[i]
-    row[:count] = counts[row[:item]]
-    output.push(row)
+    item_in_cart = find_item_by_name_in_collection(cart[i][:item], output)
+    if item_in_cart
+      # in there, increment it
+      item_in_cart[:count] += 1
+    else
+      # not in there, add it
+      row = cart[i]
+      # add the :count key
+      row[:count] = 1
+      # push onto the array
+      output.push(row)
   end
   
   output
